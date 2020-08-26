@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -xv
 map="$(dirname $0)/loc_vpn_cfg.txt"
 
 function ALLVPNCFGS {
@@ -34,7 +34,7 @@ if [ "$activcfg" -lt "1" ]; then
 		sleep 10s
 		if [ "$(VPNSTAT $selectcfg)" != "CONNECTED" ]; then
 			DISCONNECTVPN $selectcfg
-			sleep 10s
+			sleep 5s
 			CONNECT
 		fi
 	}
